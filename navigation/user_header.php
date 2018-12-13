@@ -3,17 +3,6 @@
 	<div class="header-top">
 		<div class="container">
 	  		<div class="row">
-	  			<div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
-	  				<ul>
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-	  				</ul>			
-	  			</div>
-	  			<div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-	  				<a href="#"><span class="lnr lnr-phone-handset"></span> <span class="text">+6395 084 3610</span></a>
-	  				<a href="#"><span class="lnr lnr-envelope"></span> <span class="text">corinthdev.com</span></a>			
-	  			</div>
 	  		</div>			  					
 		</div>
 	</div>
@@ -26,20 +15,42 @@
 	        <ul class="nav-menu">
 	          <li><a href="index.php">Home</a></li>
 	          <li><a href="about.php">About</a></li>
-	          <li><a href="ylp_data.php">YLP Data</a></li>
-	          <li><a href="dss_platform.php">DSS Platform</a></li>
-	          <li><a href="fertilizer.php">Fertilizer</a></li>
-	          <li><a href="lime_calculator.php">Lime Calculator</a></li>
-	          <li><a href="soil_card.php">Soil Health Card</a></li>
+	          <?php if( isset($_SESSION['user']) && !empty($_SESSION['user']) )
+				{
+				?>
+	          	<li><a href="ylp_data.php">YLP Data</a></li>
+			  <?php }else{ ?>  
+			  	<li><a href="#!" onclick="myFunction()">YLP Data</a></li>
+			  <?php } ?>
+			  
+	          <?php if( isset($_SESSION['user']) && !empty($_SESSION['user']) )
+				{
+				?>
+	          	<li><a href="soil_card.php">DSS Platform</a></li>
+			  <?php }else{ ?>  
+			  	<li><a href="#!" onclick="myFunction()">DSS Platform</a></li>
+			  <?php } ?>
+
+	          <li><a href="calculator.php"> Calculator</a></li>
+	          
 	          <?php if( isset($_SESSION['user']) && !empty($_SESSION['user']) )
 				{
 				?>
 			  	<li><a href="home/map/user-map.php">Mapping</a></li>
 			  <?php }else{ ?> 
-			  	<li><a href="#!" onclick="alert('You will need to sign in first!')">Mapping</a></li>
+			  	<li><a href="#!" onclick="myFunction()">Mapping</a></li>
 			  <?php } ?>
 	        </ul>
 	      </nav><!-- #nav-menu-container -->		    		
 		</div>
 	</div>
 </header><!-- #header -->
+<script type="text/javascript">
+function myFunction() {
+    if (confirm("You will need to sign in first!")) {
+        location.href='admin/login.php';
+    } else {
+        location.href='#!';
+    }    
+}
+</script>

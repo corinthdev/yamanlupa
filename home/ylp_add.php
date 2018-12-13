@@ -1,15 +1,23 @@
+<?php include 'frontend_links/links.php'; ?>
 <?php include ("../admin/authentication.php"); ?>
+
+
 <?php
 // Create Connection
-include 'connection.php';
+include '../admin/connection.php';
 
 if (isset($_POST['save'])) {
 		    
 			$_SESSION['success'] = "Successfully Added!";
+		    $ylp_code = $_POST['ylp_code'];
 		    $ylp_farmer = $_POST['ylp_farmer'];
+		    $description = $_POST['description'];
+		    $ylp_bayan = $_POST['ylp_bayan'];
+		    $ylp_lalawigan = $_POST['ylp_lalawigan'];
+		    $ylp_lalim = $_POST['ylp_lalim'];
+		    $taon = $_POST['taon'];
+		    $ylp_exchange = $_POST['ylp_exchange'];
 		    $ylp_crop = $_POST['ylp_crop'];
-		    $ylp_eastings = $_POST['ylp_eastings'];
-		    $ylp_northings = $_POST['ylp_northings'];
 		    $ylp_ph = $_POST['ylp_ph'];
 		    $ylp_ec = $_POST['ylp_ec'];
 		    $ylp_oc = $_POST['ylp_oc'];
@@ -22,13 +30,14 @@ if (isset($_POST['save'])) {
 		    $ylp_avail_fe = $_POST['ylp_avail_fe'];
 		    $ylp_avail_cu = $_POST['ylp_avail_cu'];
 		    $ylp_avail_mn = $_POST['ylp_avail_mn'];
+		    $ylp_default = $_POST['ylp_default'];
 			//ensure that from fields are filled properly
 			if (empty($ylp_farmer)) {
 				array_push($errors, "Farmer is required");
 			}
 			if (count($errors) == 0) {
-			    $sql = "INSERT INTO ylp_table (ylp_farmer, ylp_crop, ylp_eastings, ylp_northings, ylp_ph, ylp_ec, ylp_oc, ylp_total_n, ylp_avail_p, ylp_avail_k, ylp_avail_s, ylp_avail_zn, ylp_avail_b, ylp_avail_fe, ylp_avail_cu, ylp_avail_mn)
-			    VALUES ('$ylp_farmer', '$ylp_crop', '$ylp_eastings', '$ylp_northings', '$ylp_ph', '$ylp_ec', '$ylp_oc', '$ylp_total_n', '$ylp_avail_p', '$ylp_avail_k', '$ylp_avail_s', '$ylp_avail_zn', '$ylp_avail_b', '$ylp_avail_fe', '$ylp_avail_cu', '$ylp_avail_mn')";
+			    $sql = "INSERT INTO ylp_table (ylp_code, ylp_farmer, ylp_bayan, ylp_lalawigan, ylp_lalim, taon, ylp_exchange, ylp_crop, ylp_ph, ylp_ec, ylp_oc, ylp_total_n, ylp_avail_p, ylp_avail_k, ylp_avail_s, ylp_avail_zn, ylp_avail_b, ylp_avail_fe, ylp_avail_cu, ylp_avail_mn, ylp_default, description)
+			    VALUES ('$ylp_code', '$ylp_farmer', '$ylp_bayan', '$ylp_lalawigan', '$ylp_lalim', '$taon', '$ylp_exchange', '$ylp_crop', '$ylp_ph', '$ylp_ec', '$ylp_oc', '$ylp_total_n', '$ylp_avail_p', '$ylp_avail_k', '$ylp_avail_s', '$ylp_avail_zn', '$ylp_avail_b', '$ylp_avail_fe', '$ylp_avail_cu', '$ylp_avail_mn', '$ylp_default', '$description')";
 			    $query = mysqli_query($conn, $sql);
 				header('location: ylp_add.php'); 
 				exit();
@@ -36,9 +45,8 @@ if (isset($_POST['save'])) {
 			mysqli_close($conn);
 		  }
 ?>
-	<?php include 'frontend_links/links.php'; ?>	
+    <?php include '../navigation/user_header.php' ?>	
 		<body>	
-		  	<?php include '../navigation/header.php' ?>
 			<!-- start banner Area -->
 			<section class="banner-area relative about-banner" id="home">	
 				<div class="overlay overlay-bg"></div>
@@ -79,16 +87,31 @@ if (isset($_POST['save'])) {
 			                  </div>
 			                <?php endif ?>
 							<form method="POST" action="ylp_add.php">
+								<?php if( isset($_SESSION['user']) && !empty($_SESSION['user']) )
+								{
+								?>
+								<input type="hidden" name="ylp_default" value="<?php echo $_SESSION['user']['fullname']; ?>">
+								<?php } ?><br>
+								<label>Code</label>
+								<input type="text" class="form-control h5" name="ylp_code" required><br>
 								<label>Farmer</label>
+								<input type="text" class="form-control h5" name="description" required><br>
+								<label>Barangay</label>
 								<input type="text" class="form-control h5" name="ylp_farmer" required><br>
+								<label>Bayan</label>
+								<input type="text" class="form-control h5" name="ylp_bayan" required><br>
+								<label>Lalawigan</label>
+								<input type="text" class="form-control h5" name="ylp_lalawigan" required><br>
+								<label>Lalim ng Sampling</label>
+								<input type="text" class="form-control h5" name="ylp_lalim" required><br>
+								<label>Taon</label>
+								<input type="text" class="form-control h5" name="taon" required><br>
+								<label>Exchangable Acidity</label>
+								<input type="text" class="form-control h5" name="ylp_exchange" required><br>
 								<label>Crop</label>
 								<input type="text" class="form-control h5" name="ylp_crop" required><br>
-								<label>Eastings</label>
-								<input type="text" class="form-control h5" name="ylp_eastings" required><br>
-								<label>Northings</label>
-								<input type="text" class="form-control h5" name="ylp_northings" required><br>
-								<label>pH</label>
-								<input type="text" class="form-control h5" name="ylp_ph" required><br>
+								<label>pH</label><br>
+								<input class="form-control" type="number" name="ylp_ph" placeholder="0.00" required name="price" min="0" max="14.99" value="0" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">
 								<label>EC</label>
 								<input type="text" class="form-control h5" name="ylp_ec" required><br>
 								<label>OC</label>

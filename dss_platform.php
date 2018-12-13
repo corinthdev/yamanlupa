@@ -1,5 +1,6 @@
 	    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
         <?php include 'frontend_links/links.php'; ?>
+        <?php include ("admin/auth.php"); ?>
         <?php include 'navigation/user_header.php'; ?>
 
         <!-- start banner Area -->
@@ -21,7 +22,13 @@
         <!-- Start events-list Area -->
         <section class="events-list-area section-gap event-page-lists bg-light">
             <div class="container">
-                <h1>DSS Platform</h1><br>
+                <h1>DSS Platform</h1><hr>
+                <h3>DSS Details</h3><br>
+                <p class="text-black text-justify">
+                    <em>A decision support system (DSS) is an information system that supports business or organizational decision-making activities. DSSs serve the management, operations and planning levels of an organization (usually mid and higher management) and help people make decisions about problems that may be rapidly changing and not easily specified in advance—i.e. unstructured and semi-structured decision problems. Decision support systems can be either fully computerized or human-powered, or a combination of both.<br><br>
+                    In this DSS it provides help to farmers to know how much lime or fertilizer are they going to put in their soil and it also suggest where they can buy this agricultural product and recommend crops that depends on your soil analysis.</em>
+
+                </p><br>
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>2016 Platform</h3><br>

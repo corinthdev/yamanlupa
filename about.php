@@ -1,7 +1,8 @@
   		<link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
 		<?php include("frontend_links/links.php") ?>
+		<?php include ("admin/auth.php"); ?>
+		<?php include("navigation/user_header.php") ?>
 		<body>
-			<?php include("navigation/user_header.php") ?>
 			  
 			<!-- start banner Area -->
 			<section class="banner-area relative about-banner" id="home">	
@@ -18,15 +19,13 @@
 				</div>
 			</section>
 			<!-- End banner Area -->	
-		
-			<?php include 'navigation/feature.php'; ?>
-
+			<br><br>
 			<!-- Start info Area -->
 			<section class="info-area pb-120">
 				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-lg-6 no-padding info-area-left">
-							<img class="img-fluid" src="img/about-img.jpg" alt="">
+							<img class="img-fluid" src="img/ylp.jpg" alt="">
 						</div>
 						<div class="col-lg-6 info-area-right">
 							<h1>Who we are to serve</h1>
@@ -62,13 +61,13 @@
                                     <a href="">Mission</a>
                                 </dt>
                                 <dd>
-									Soon...
+									To help and empower the farming and fishing communities and the private sector to produce enough, accessible and affordable food for every Filipino and a decent income for all.
                                 </dd>
                                 <dt>
                                     <a href="">Vision</a>
                                 </dt>
                                 <dd>
-                                    Soon...
+                                    The Department’s vision is a competitive, sustainable, and technology-based agriculture and fishery sector, driven by productive and progressive farmers and fisherfolk, supported by efficient value chains and well integrated in the domestic and international markets contributing to inclusive growth and poverty reduction.
                                 </dd>
                                 <dt>
                                     <a href="">What is Yamang Lupa Program?</a>

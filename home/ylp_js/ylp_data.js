@@ -1,4 +1,4 @@
-    	
+		    	
 		//for datatable
     	$(document).ready(function() {
 			$('#ylp_datatable').DataTable();
@@ -15,10 +15,15 @@
        	$(document).ready(function(){
 		  $(document).on('click','a[data-role=update]',function(){
 		      var id = $(this).data('id');
+		      var ylp_code = $('#'+id).children('td[data-target=ylp_code]').text();
 		      var ylp_farmer = $('#'+id).children('td[data-target=ylp_farmer]').text();
+		      var ylp_bayan = $('#'+id).children('td[data-target=ylp_bayan]').text();
+		      var ylp_lalawigan = $('#'+id).children('td[data-target=ylp_lalawigan]').text();
+		      var ylp_lalim = $('#'+id).children('td[data-target=ylp_lalim]').text();
+		      var taon = $('#'+id).children('td[data-target=taon]').text();
 		      var ylp_crop = $('#'+id).children('td[data-target=ylp_crop]').text();
-		      var ylp_eastings = $('#'+id).children('td[data-target=ylp_eastings]').text();
-		      var ylp_northings = $('#'+id).children('td[data-target=ylp_northings]').text();
+		      var description = $('#'+id).children('td[data-target=description]').text();
+		      var ylp_exchange = $('#'+id).children('td[data-target=ylp_exchange]').text();
 		      var ylp_ph = $('#'+id).children('td[data-target=ylp_ph]').text();
 		      var ylp_ec = $('#'+id).children('td[data-target=ylp_ec]').text();
 		      var ylp_oc = $('#'+id).children('td[data-target=ylp_oc]').text();
@@ -32,10 +37,15 @@
 		      var ylp_avail_cu = $('#'+id).children('td[data-target=ylp_avail_cu]').text();
 		      var ylp_avail_mn = $('#'+id).children('td[data-target=ylp_avail_mn]').text();
 
+		      $('#ylp_code').val(ylp_code);
 		      $('#ylp_farmer').val(ylp_farmer);
+		      $('#ylp_bayan').val(ylp_bayan);
+		      $('#ylp_lalawigan').val(ylp_lalawigan);
+		      $('#ylp_lalim').val(ylp_lalim);
+		      $('#taon').val(taon);
 		      $('#ylp_crop').val(ylp_crop);
-		      $('#ylp_eastings').val(ylp_eastings);
-		      $('#ylp_northings').val(ylp_northings);
+		      $('#description').val(description);
+		      $('#ylp_exchange').val(ylp_exchange);
 		      $('#ylp_ph').val(ylp_ph);
 		      $('#ylp_ec').val(ylp_ec);
 		      $('#ylp_oc').val(ylp_oc);
@@ -56,10 +66,15 @@
 
 		  $('#save').click(function(){
 		      var id = $('#farmerId').val();
+		      var ylp_code = $('#ylp_code').val();
 		      var ylp_farmer = $('#ylp_farmer').val();
+		      var ylp_bayan = $('#ylp_bayan').val();
+		      var ylp_lalawigan = $('#ylp_lalawigan').val();
+		      var ylp_lalim = $('#ylp_lalim').val();
+		      var taon = $('#taon').val();
 		      var ylp_crop = $('#ylp_crop').val();
-		      var ylp_eastings = $('#ylp_eastings').val();
-		      var ylp_northings = $('#ylp_northings').val();
+		      var description = $('#description').val();
+		      var ylp_exchange = $('#ylp_exchange').val();
 		      var ylp_ph = $('#ylp_ph').val();
 		      var ylp_ec = $('#ylp_ec').val();
 		      var ylp_oc = $('#ylp_oc').val();
@@ -75,7 +90,7 @@
 		      $.ajax({
 		          url     : 'update_ylp.php',
 		          method  : 'post',
-		          data    : {ylp_farmer : ylp_farmer, ylp_crop : ylp_crop, ylp_eastings : ylp_eastings, ylp_northings : ylp_northings, ylp_ph : ylp_ph, 
+		          data    : {ylp_code : ylp_code, ylp_farmer : ylp_farmer, ylp_bayan : ylp_bayan, ylp_lalawigan : ylp_lalawigan, ylp_lalim : ylp_lalim, taon : taon, ylp_crop : ylp_crop, description : description, ylp_exchange : ylp_exchange, ylp_ph : ylp_ph, 
 		            ylp_ec : ylp_ec, ylp_oc : ylp_oc , ylp_total_n : ylp_total_n, ylp_avail_p : ylp_avail_p , ylp_avail_k : ylp_avail_k , ylp_avail_s : ylp_avail_s, 
 		            ylp_avail_zn : ylp_avail_zn, ylp_avail_b : ylp_avail_b, ylp_avail_fe : ylp_avail_fe, ylp_avail_cu : ylp_avail_cu, ylp_avail_mn : ylp_avail_mn, id : id},
 		          success : function(data){

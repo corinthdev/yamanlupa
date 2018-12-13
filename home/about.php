@@ -18,9 +18,7 @@
 				</div>
 			</section>
 			<!-- End banner Area -->	
-		
-			<?php include '../navigation/feature.php'; ?>
-
+			<br><br>
 			<!-- Start info Area -->
 			<section class="info-area pb-120">
 				<div class="container-fluid">
@@ -62,13 +60,13 @@
                                     <a href="">Mission</a>
                                 </dt>
                                 <dd>
-									Soon...
+									To help and empower the farming and fishing communities and the private sector to produce enough, accessible and affordable food for every Filipino and a decent income for all.
                                 </dd>
                                 <dt>
                                     <a href="">Vision</a>
                                 </dt>
                                 <dd>
-                                    Soon...
+                                    The Department’s vision is a competitive, sustainable, and technology-based agriculture and fishery sector, driven by productive and progressive farmers and fisherfolk, supported by efficient value chains and well integrated in the domestic and international markets contributing to inclusive growth and poverty reduction.
                                 </dd>
                                 <dt>
                                     <a href="">What is Yamang Lupa Program?</a>

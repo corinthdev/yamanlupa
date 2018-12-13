@@ -44,18 +44,61 @@
                     <span class="pull-right"><input type="submit" name="login" value="Login" class="btn btn-success" /></span>
                 </div>
             </form>
-            <form id="recoverform" action="#" class="form-vertical">
+            <?php 
+                error_reporting(0);
+                if($_POST['submit']=='Send')
+                {
+                    //keep it inside
+                    include 'connection.php';
+                    $email=$_POST['email'];
+                    $code = $_GET['activation_code'];
+                    $query = mysqli_query($conn,"SELECT * FROM credentials WHERE email='$email'")
+                    or die(mysqli_error($conn)); 
+
+                if (mysqli_num_rows ($query)==1) 
+                {
+
+                    $code=rand(100,999);
+                    $message="You activation link is: http://bing.fun2pk.com/resetpassword.php?email=$email&code=$code";
+                    mail($email, "ZatWing", $message);
+                    $_SESSION['success'] = "Email sent!";
+                    $query2 = mysqli_query($conn,"UPDATE credentials SET activation_code='$code' WHERE email='$email' ")
+                    or die(mysqli_error($conn));
+                    header("location: resetpassword.php"); 
+                }else{
+                    $_SESSION['error'] = "No existing email!";
+                }}
+            ?>
+            <form id="recoverform" action="login.php" method="POST" class="form-vertical">
+                <?php if (isset($_SESSION['error'])) : ?>
+                  <div class="alert alert-error" >
+                    <center><strong>
+                      <?php 
+                        echo $_SESSION['error']; 
+                        unset($_SESSION['error']);
+                      ?>
+                    </strong></center>
+                  </div>
+                <?php endif ?>
+                <?php if (isset($_SESSION['success'])) : ?>
+                  <div class="alert alert-success" >
+                    <center><strong>
+                      <?php 
+                        echo $_SESSION['success']; 
+                        unset($_SESSION['success']);
+                      ?>
+                    </strong></center>
+                  </div>
+                <?php endif ?>
 				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
-				
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lo"><i class="fa fa-envelope"></i></span><input type="text" placeholder="E-mail address" />
+                            <span class="add-on bg_lo"><i class="fa fa-envelope"></i></span><input type="email" name="email" placeholder="E-mail address" />
                         </div>
                     </div>
-               
                 <div class="form-actions">
-                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-                    <span class="pull-right"><a class="btn btn-info">Recover</a></span>
+                    <span class="pull-left"><a href="logout.php" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
+                    <span class="pull-right"><input type="submit" name="submit" value="Send" class="btn btn-info"></span>
                 </div>
             </form>
         </div>

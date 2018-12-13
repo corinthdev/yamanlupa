@@ -1,20 +1,19 @@
-    <link rel="shortcut icon" type="image/x-icon" href="frontend_links/backend_images/icon.png" />
-    <?php include ("../admin/authentication.php"); ?>
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png" />
     <link rel="stylesheet" type="text/css" href="frontend_links/multipage.css">
     <?php include 'frontend_links/links.php'; ?>
+    <?php include '../admin/authentication.php'; ?>
     <?php include '../navigation/header.php' ?>
-    <?php include 'soil.php' ?>
         <!-- start banner Area -->
-        <section class="banner-area relative about-banner" id="home">	
+        <section class="banner-area relative about-banner" id="home">   
             <div class="overlay overlay-bg"></div>
-            <div class="container">				
+            <div class="container">             
                 <div class="row d-flex align-items-center justify-content-center">
                     <div class="about-content col-lg-12">
                         <h1 class="text-white">
-                            Soil Health Card				
-                        </h1>	
-                        <p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="soil_card.php"> Soil Health Card</a></p>
-                    </div>	
+                            DSS PLATFORM                
+                        </h1>   
+                        <p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="soil_card.php"> DSS PLATFORM</a></p>
+                    </div>  
                 </div>
             </div>
         </section>
@@ -27,245 +26,94 @@
                     <div class="col-lg-12">
                         <div style="height:40px;"></div>
                             <div class="assessment-container container">
-                                <?php if (isset($_SESSION['success'])) : ?>
-                                  <div class="alert alert-success" id="flash-msg">
-                                    <h4>
-                                      <?php 
-                                        echo $_SESSION['success']; 
-                                        unset($_SESSION['success']);
-                                      ?>
-                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                    </h4>
-                                  </div>
-                                <?php endif ?>
-
-                                <div id="divToPrint">
-                                <form role="form" class="registration-form" method="POST" action="soil_card.php">
-                                    <fieldset>
-                                        <div class="form-top">
-                                            <div class="form-top-left"><br>
-                                                <h3>SOIL HEALTH CARD</h3>
+                                <h1 class="text-center">Soil Health Card</h1><hr>
+                                <div class="row">
+                                    <div class="col-lg-3 border"><br>
+                                        <form role="form" method="post" action="soil_card2.php">
+                                            <h5>Pangunahing Impormasyon:</h5><hr>
+                                            <div class="form-group">
+                                                <label>Code</label><br>
+                                                <input type="text" name="code" id="code" required>
                                             </div>
+                                            <div class="form-group">
+                                                <label>Pangalan</label><br>
+                                                <input type="text" name="pangalan" id="pangalan" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Barangay</label><br>
+                                                <input type="text" name="brgy" id="brgy" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Bayan</label><br>
+                                                <input type="text" name="bayan" id="bayan" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Lalawigan</label><br>
+                                                <input type="text" name="lalawigan" id="lalawigan" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Lalim ng Pagkuha ng Soil Sample</label><br>
+                                                <input type="text" name="lalim" id="lalim" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Taon ng Samplin</label><br>
+                                                <input type="text" name="sampling" id="sampling" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-success form-control" name="submit">Next</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-9 border"><br>
+                                        <h5>DSS Details</h5><hr>
+                                        <p><em>Dss details
+                                        A decision support system (DSS) is an information system that supports business or organizational decision-making activities. DSSs serve the management, operations and planning levels of an organization (usually mid and higher management) and help people make decisions about problems that may be rapidly changing and not easily specified in advance—i.e. unstructured and semi-structured decision problems. Decision support systems can be either fully computerized or human-powered, or a combination of both.<br>
+                                        In this DSS it provides help to farmers to know how much lime or fertilizer are they going to put in their soil and it also suggest where they can buy this agricultural product and recommend crops that depends on your soil analysis.
+                                        </em></p><br><br>
+                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                          <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                          </ol>
+                                          <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                              <img class="d-block w-100" src="../img/lupa1.jpg" alt="First slide">
+                                              <div class="carousel-caption d-none d-md-block">
+                                                <h2 class="text-light">SOIL</h2>
+                                                <p class="text-justify">Soil is a mixture of organic matter, minerals, gases, liquids, and organisms that together support life. the upper layer of earth in which plants grow, a black or dark brown material typically consisting of a mixture of organic remains, clay, and rock particles.<br><b>Did you know?</b> Soil has a negative charge, while the contaminants tend to be positively charged.</p>
+                                              </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img class="d-block w-100" src="../img/lupa2.jpg" alt="Second slide">
+                                              <div class="carousel-caption d-none d-md-block">
+                                                <h2 class="text-light">FERTILIZER</h2>
+                                                <p class="text-justify">A fertilizer or fertiliser is any material of natural or synthetic origin that is applied to soils or to plant tissues to supply one or more plant nutrients essential to the growth of plants. Many sources of fertilizer exist, both natural and industrially produced.</p>
+                                              </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                              <img class="d-block w-100" src="../img/lupa3.jpg" alt="Third slide">
+                                              <div class="carousel-caption d-none d-md-block">
+                                                <h2 class="text-light">PLANTS</h2>
+                                                <p class="text-justify">Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae. They form the clade Viridiplantae that includes the flowering plants, conifers and other gymnosperms, ferns and their allies, hornworts, liverworts, mosses and the green algae, and excludes the red and brown algae.</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>
                                         </div>
-                                        <div class="form-bottom">
-                                            <h3>Pangunahing Impormasyon:</h3><br>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Pangalan" name="pangalan">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Baranggay" name="brgy">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Bayan" name="bayan">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Lalawigan" name="lalawigan">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Lalim ng Pagkuha ng Soil Sample" name="soil_sample">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Taon ng Sampling" name="sampling">
-                                            </div>
-                                            <button type="button" class="btn btn-success btn-next">Next</button>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-top">
-                                            <div class="form-top-left"><br>
-                                                <h3>SOIL HEALTH CARD</h3>
-                                            </div>
-                                        </div>
-                                        <div class="form-bottom">
-                                            <h3>Resulta ng Soil Analysis:</h3><br>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="PH ng Lupa" name="ph_lupa" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="-" name="ph_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="ph_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="ph_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Electricity Conductivity" name="ec_conduc" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="0.8" name="ec_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="ec_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="ec_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Oraganic Carbon (%)" name="oc_carb" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="2.0" name="oc_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="oc_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="oc_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Phosphorous (PPM)" name="phospho" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="10" name="phospho_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="phospho_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="phospho_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Potassium (PPM)" name="pota" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="75" name="pota_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="pota_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="pota_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Sulfur (PPM)" name="sulfur" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="10" name="sulfur_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="sulfur_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="sulfur_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Zinc (PPM)" name="zinc" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="0.75" name="zinc_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="zinc_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="zinc_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Iron (PPM)" name="iron" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="2.00" name="iron_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="iron_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="iron_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Copper (PPM)" name="copper" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="0.50" name="copper_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="copper_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="copper_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <input type="text" class="form-control" value="Available Manganese (PPM)" name="manga" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" value="1.00" name="manga_krit" readonly>
-                                                    </div>
-                                                    <div class="col-lg-3">
-                                                        <input type="text" class="form-control" placeholder="Obserbasyon" name="manga_observe">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <input type="text" class="form-control" placeholder="Resulta" name="manga_result">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn btn-success btn-previous">Previous</button>
-                                            <input type="submit" class="btn btn-warning" value="Submit" name="submit">
-                                            <a class="btn btn-primary text-white" onclick="PrintDiv();">
-                                                <i class="fa fa-print">&nbsp<strong>PRINT</strong></i>
-                                            </a>
-                                        </div>
-                                    </fieldset>
-                                </form>
+                                    </div>
+                                </div>      
                             </div>
                     </div>
                 </div>
-            </div>	
+            </div>  
         </section>
         <!-- End events-list Area -->
-        <script type="text/javascript" src="frontend_links/multipage.js"></script>      
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#flash-msg").delay(2000).fadeOut("slow");
-            });
-        </script>   
-        <script type="text/javascript">     
-            function PrintDiv() {    
-               var divToPrint = document.getElementById('divToPrint');
-               var popupWin = window.open('', '_blank', 'width=1000,height=700');
-               popupWin.document.open();
-               popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
-                popupWin.document.close();
-                    }
-        </script>
+        <script type="text/javascript" src="frontend_links/multipage.js"></script>
             
         <?php include '../navigation/footer.php' ?>
